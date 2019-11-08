@@ -1,0 +1,11 @@
+.text {
+  &--thin {
+    font-weight: lighter;
+  }
+  &--thick {
+    font-weight: bolder;
+  }
+  &--center {
+    text-align: center;
+  }
+}

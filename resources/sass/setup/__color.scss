@@ -1,0 +1,7 @@
+.color {
+  @each $color, $hex in map-merge($color-map, $theme-map) {
+    &--#{$color} {
+      color: $hex;
+    }
+  }
+}

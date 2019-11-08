@@ -1,0 +1,19 @@
+@include spread-directions('.m', margin, $position-size-map);
+
+@each $k, $v in $position-breakpoint-map {
+  @include respond-after($k) {
+    @include spread-directions('.m', margin, $position-size-map, -#{$k});
+  }
+}
+
+@include spread-directions('.p', padding, $position-size-map);
+
+@each $k, $v in $position-breakpoint-map {
+  @include respond-after($k) {
+    @include spread-directions('.p', padding, $position-size-map, -#{$k});
+  }
+}
+
+.rounded {
+  border-radius: 1rem;
+}

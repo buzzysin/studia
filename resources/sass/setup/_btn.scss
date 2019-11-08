@@ -1,0 +1,26 @@
+.btn {
+  border: 1px transparent;
+  display: inline-block;
+  padding: .5rem 1rem;
+
+  border-radius: 2rem;
+
+  font-family: $font-family-main;
+  font-size: inherit;
+
+  & + & {
+    margin-left: .5rem;
+  }
+
+  @each $color, $hex in map-merge($color-map, $theme-map) {
+    &--#{$color} {
+      @include background($hex);
+      transition: color .5s, background-color .5s;
+
+      &:hover {
+        @include background(darken($hex, 10%));
+      }
+    }
+  }
+
+}

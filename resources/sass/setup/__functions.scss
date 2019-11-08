@@ -1,0 +1,17 @@
+@function breakpoint($point) {
+  @return map-get($position-breakpoint-map, $point);
+}
+
+@function yiq($bg) {
+  $r: red($bg);
+  $g: green($bg);
+  $b: blue($bg);
+
+  $yiq: (($r*299) + ($g*587) + ($b*114))/1000;
+
+  @if ($yiq >= 156) {
+    @return #202020;
+  } @else {
+    @return white;
+  }
+}

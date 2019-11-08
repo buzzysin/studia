@@ -1,0 +1,30 @@
+.nav {
+  padding: .5rem 1rem;
+  position: sticky;
+  width: 100%;
+  top: 0; left: 0;
+  z-index: 10; 
+
+  &--inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &--items {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    &-inner {
+      display: flex;
+    }
+  }
+  &--item {
+    padding: .5rem;
+  }
+  &--logo {
+    padding: .5rem;
+    display: block;
+    margin-right: .5rem;
+  }
+}

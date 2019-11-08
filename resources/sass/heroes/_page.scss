@@ -1,0 +1,31 @@
+.hero--page {
+  min-height: 95vh;
+  position: relative;
+
+  &::before {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    opacity: .35;
+
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-1 {
+    &::before {
+      background-image: url("https://i.guim.co.uk/img/media/d79f076d22edde9649adbb6c0f788546f94c2d68/0_308_5000_3001/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=e0b7a410e0405dbd903959667ed3dd98");
+    }
+  }
+
+  &-2 {
+    &::before {
+      background-image: url("https://www.moneymagpie.com/wp-content/uploads/2014/10/MoneyMagpie_student-kitchen-730x486.jpg");
+    }
+  }
+}

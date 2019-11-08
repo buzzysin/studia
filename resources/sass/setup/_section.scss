@@ -1,0 +1,19 @@
+.section {
+  padding: 4rem;
+  margin: 0 auto;
+  @each $k, $v in $position-breakpoint-map {
+    @include respond-after($k){
+      @if($k == xs) {}
+      @else {
+        max-width: $v;
+      }
+    }
+  }
+
+  &--header {
+    margin-bottom: 2rem;
+  }
+
+  &--body {
+  }
+}

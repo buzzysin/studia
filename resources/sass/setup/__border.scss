@@ -1,0 +1,9 @@
+.border {
+  border: 1px solid;
+
+  @each $color, $hex in map-merge($color-map, $theme-map) {
+    &--#{$color} {
+      border-color: lighten($hex, 10%);
+    }
+  }
+}

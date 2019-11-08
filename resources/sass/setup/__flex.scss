@@ -1,0 +1,109 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    width: 100%;
+    position: relative;
+  }
+
+  &--row {
+    flex-direction: row;
+    &-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--column {
+    flex-direction: column;
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &--justify {
+    &-center {
+      justify-content: center;
+    }
+    &-left {
+      justify-content: flex-start;
+    }
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+
+  &--align {
+    &-center {
+      align-items: center;
+    }
+    &-top {
+      align-items: flex-start;
+    }
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+
+  $rs: ();
+
+  @each $r1 in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+    @each $r2 in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+      @if null == index($rs, $r1/$r2) and $r1 < $r2 {
+        &--#{$r1}-#{$r2} {
+          flex-basis: 0;
+          flex-grow: 1;
+          max-width: #{($r1/$r2) * 100}#{'%'};
+        }
+
+        @each $k, $v in $position-breakpoint-map {
+          @include respond-after($k) {
+            &--#{$k}-#{$r1}-#{$r2} {
+              flex-basis: 0;
+              flex-grow: 1;
+              max-width: #{($r1/$r2) * 100}#{'%'};
+            }
+          }
+        }
+
+        $rs: append($rs, $r1/$r2);
+      }
+    }
+  }
+
+  &--auto {
+    width: unset;
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  @each $k, $v in $position-breakpoint-map {
+    @include respond-after($k) {
+      &-#{$k}-auto {
+        flex: 0 0 auto;
+        max-width: 100%;
+        width: unset;
+      }
+    }
+  }
+}
+
+.order {
+  @each $order in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+    &--#{$order} {
+      order: $order;
+    }
+
+    @each $k, $v in $position-breakpoint-map {
+      @include respond-after($k) {
+        &--#{$k}-#{$order} {
+          order: $order;
+        }
+      }
+    }
+  }
+}

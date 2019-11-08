@@ -1,0 +1,63 @@
+///////////////
+// Shorthand //
+///////////////
+
+@mixin spread-directions($selector, $property, $value-map, $prefix: '') {
+  #{$selector} {
+    &l#{$prefix},
+    &x#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-left: $value;
+        }
+      }
+    }
+    &r#{$prefix},
+    &x#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-right: $value;
+        }
+      }
+    }
+    &t#{$prefix},
+    &y#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-top: $value;
+        }
+      }
+    }
+    &b#{$prefix},
+    &y#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-bottom: $value;
+        }
+      }
+    }
+  }
+}
+
+////////////////
+// Responsive //
+////////////////
+
+@mixin respond-after($at) {
+  @media screen and (min-width: #{breakpoint($at)}) {
+    @content;
+  }
+}
+
+///////////////
+// Colouring //
+///////////////
+
+@mixin background($color) {
+  background-color: $color;
+  color: yiq($color);
+}

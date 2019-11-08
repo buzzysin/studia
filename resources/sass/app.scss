@@ -1,0 +1,23 @@
+@import "setup/__variables";
+@import "setup/__functions";
+@import "setup/__mixins";
+
+@import "setup/__text";
+@import "setup/__bg";
+@import "setup/__color";
+@import "setup/__border";
+
+@import "setup/base";
+@import "setup/nav";
+@import "setup/btn";
+@import "setup/section";
+@import "setup/form";
+
+@import "setup/__util";
+@import "setup/__flex";
+
+// * Heroes
+@import "heroes/main";
+@import "heroes/page";
+
+@import "~aos/src/sass/aos";
